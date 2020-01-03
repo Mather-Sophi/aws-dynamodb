@@ -91,3 +91,7 @@ variable "read_min_capacity" {
   description = "Minimum read capacity for autoscaling"
   default = 5
 }
+
+variable "autoscaling_role_arn" {
+  type = "string"
+}

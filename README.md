@@ -13,6 +13,7 @@ module "dynamodb_table" {
   tags = {
     Environment = var.environment
   }
+  autoscaling_role_arn = role-arn
 }
 ```
 
@@ -35,6 +36,7 @@ module "dynamodb_table" {
 | write_min_capacity | Minimum write capacity for autoscaling | number | 5 | no |
 | read_min_capacity | Minimum read capacity for autoscaling | number | 5 | no |
 | tags | A mapping of tags to assign to the resource | map | `{}` | no |
+| autoscaling_role_arn | default role arn for dynamodb autoscaling | string | n/a | yes
 
 
 ## Outputs
