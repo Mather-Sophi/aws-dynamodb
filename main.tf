@@ -54,7 +54,6 @@ resource "aws_dynamodb_table" "dynamodb_table" {
 }
 
 resource "aws_appautoscaling_target" "dynamodb_table_read_target" {
-  count = var.billing_mode == "PROVISIONED" ? 1 : 0
   max_capacity = var.read_max_capacity
   min_capacity = var.read_min_capacity
   resource_id = "table/${var.table_name}"
@@ -64,7 +63,6 @@ resource "aws_appautoscaling_target" "dynamodb_table_read_target" {
 }
 
 resource "aws_appautoscaling_policy" "dynamodb_table_read_policy" {
-  count              = var.billing_mode == "PROVISIONED" ? 1 : 0
   name               = "DynamoDBReadCapacityUtilization:${aws_appautoscaling_target.dynamodb_table_read_target.resource_id}"
   policy_type        = "TargetTrackingScaling"
   resource_id        = "${aws_appautoscaling_target.dynamodb_table_read_target.resource_id}"
@@ -81,7 +79,6 @@ resource "aws_appautoscaling_policy" "dynamodb_table_read_policy" {
 }
 
 resource "aws_appautoscaling_target" "dynamodb_table_write_target" {
-  count = var.billing_mode == "PROVISIONED" ? 1 : 0
   max_capacity = var.write_max_capacity
   min_capacity = var.write_min_capacity
   resource_id = "table/${var.table_name}"
@@ -91,7 +88,6 @@ resource "aws_appautoscaling_target" "dynamodb_table_write_target" {
 }
 
 resource "aws_appautoscaling_policy" "dynamodb_table_write_policy" {
-  count              = var.billing_mode == "PROVISIONED" ? 1 : 0
   name               = "DynamoDBReadCapacityUtilization:${aws_appautoscaling_target.dynamodb_table_write_target.resource_id}"
   policy_type        = "TargetTrackingScaling"
   resource_id        = "${aws_appautoscaling_target.dynamodb_table_write_target.resource_id}"

@@ -5,7 +5,7 @@ variable "table_name" {
 
 variable "billing_mode" {
   type = "string"
-  description = "DynamoDB Billing mode. Can be PROVISIONED or PAY_PER_REQUEST"
+  description = "DynamoDB Billing mode. Can be PROVISIONED or PAY_PER_REQUEST, only working with PROVISIONED"
   default = "PROVISIONED"
 }
 

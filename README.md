@@ -22,6 +22,7 @@ module "dynamodb_table" {
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
 | table\_name | name of the dynamodb table | string | n/a | yes |
+| billing\_mode | DynamoDB Billing mode. Can be PROVISIONED or PAY_PER_REQUEST, only working with PROVISIONED | string | "PROVISIONED" | no
 | hash\_key | DynamoDB table Hash Key | string | n/a | yes |
 | hash\_key\_type | Type of the primary key which must be a scalar type: `S`, `N`, or `B` for (S)tring, (N)umber or (B)inary data | string | 'S' | yes |
 | range\_key | DynamoDB table Range Key | string | "" | no |
