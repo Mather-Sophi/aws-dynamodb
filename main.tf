@@ -56,7 +56,7 @@ resource "aws_dynamodb_table" "dynamodb_table" {
 resource "aws_appautoscaling_target" "dynamodb_table_read_target" {
   max_capacity = var.read_max_capacity
   min_capacity = var.read_min_capacity
-  resource_id = "table/${var.table_name}"
+  resource_id = aws_dynamodb_table.dynamodb_table.id
   scalable_dimension = "dynamodb:table:ReadCapacityUnits"
   role_arn = var.autoscaling_role_arn
   service_namespace = "dynamodb"
@@ -81,7 +81,7 @@ resource "aws_appautoscaling_policy" "dynamodb_table_read_policy" {
 resource "aws_appautoscaling_target" "dynamodb_table_write_target" {
   max_capacity = var.write_max_capacity
   min_capacity = var.write_min_capacity
-  resource_id = "table/${var.table_name}"
+  resource_id = aws_dynamodb_table.dynamodb_table.id
   scalable_dimension = "dynamodb:table:WriteCapacityUnits"
   role_arn = var.autoscaling_role_arn
   service_namespace = "dynamodb"
