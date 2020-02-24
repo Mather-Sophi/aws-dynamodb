@@ -12,3 +12,8 @@ output "table_arn" {
   value       = concat(aws_dynamodb_table.dynamodb_table.*.arn, [""])[0]
   description = "DynamoDB table ARN"
 }
+
+output "stream_arn" {
+  value = concat(aws_dynamodb_table.dynamodb_table.*.stream_arn, [""])[0]
+  description = "DynamoDB table ARN"
+}

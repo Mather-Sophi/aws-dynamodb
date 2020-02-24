@@ -38,6 +38,7 @@ module "dynamodb_table" {
 | read_min_capacity | Minimum read capacity for autoscaling | number | 5 | no |
 | tags | A mapping of tags to assign to the resource | map | `{}` | no |
 | autoscaling_role_arn | default role arn for dynamodb autoscaling | string | n/a | yes
+| stream_enabled | whether stream should be enabled or not | bool | false | no
 
 
 ## Outputs
@@ -47,3 +48,4 @@ module "dynamodb_table" {
 | table\_name |  |
 | table\_id |  |
 | table\_arn |  |
+| stream|_arn |  |

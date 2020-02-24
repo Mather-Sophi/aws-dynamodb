@@ -95,3 +95,8 @@ variable "read_min_capacity" {
 variable "autoscaling_role_arn" {
   type = "string"
 }
+
+variable "stream_enabled" {
+  type = bool
+  default = false
+}

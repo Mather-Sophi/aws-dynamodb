@@ -30,7 +30,7 @@ resource "aws_dynamodb_table" "dynamodb_table" {
   range_key = var.range_key
   write_capacity = var.write_capacity
   read_capacity = var.read_capacity
-
+  stream_enabled = var.stream_enabled
   dynamic "attribute" {
     for_each = local.attributes_final
     content {
